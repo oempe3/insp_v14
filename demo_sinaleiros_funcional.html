@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Demo - Sinaleiros Funcionais</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        .demo-container {
+            max-width: 600px;
+            margin: 40px auto;
+            padding: 20px;
+            background: white;
+            border-radius: 12px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+        }
+        
+        .demo-title {
+            text-align: center;
+            color: #004C99;
+            margin-bottom: 30px;
+        }
+        
+        .status-demo {
+            margin-bottom: 20px;
+            padding: 15px;
+            border: 1px solid #E0E0E0;
+            border-radius: 8px;
+        }
+        
+        .status-demo h3 {
+            margin: 0 0 10px 0;
+            font-size: 1rem;
+            color: #333;
+        }
+    </style>
+</head>
+<body>
+    <div class="demo-container">
+        <h1 class="demo-title">🚦 Demonstração de Sinaleiros Funcionais</h1>
+        
+        <div class="status-demo">
+            <h3>Bomba 1 - Status</h3>
+            <div class="form-group">
+                <label for="bomba1">
+                    <span id="ind-bomba1" class="status-indicator"></span>
+                    Status da Bomba 1
+                </label>
+                <select id="bomba1" onchange="updateIndicator('ind-bomba1', this.value)">
+                    <option value="">Selecione...</option>
+                    <option value="OPE">OPE</option>
+                    <option value="ST-BY">ST-BY</option>
+                    <option value="MNT">MNT</option>
+                </select>
+            </div>
+        </div>
+        
+        <div class="status-demo">
+            <h3>Bomba 2 - Status</h3>
+            <div class="form-group">
+                <label for="bomba2">
+                    <span id="ind-bomba2" class="status-indicator"></span>
+                    Status da Bomba 2
+                </label>
+                <select id="bomba2" onchange="updateIndicator('ind-bomba2', this.value)">
+                    <option value="">Selecione...</option>
+                    <option value="OPE">OPE</option>
+                    <option value="ST-BY">ST-BY</option>
+                    <option value="MNT">MNT</option>
+                </select>
+            </div>
+        </div>
+        
+        <div class="status-demo">
+            <h3>Gerador - Status</h3>
+            <div class="form-group">
+                <label for="gerador">
+                    <span id="ind-gerador" class="status-indicator"></span>
+                    Status do Gerador
+                </label>
+                <select id="gerador" onchange="updateIndicator('ind-gerador', this.value)">
+                    <option value="">Selecione...</option>
+                    <option value="OPE">OPE</option>
+                    <option value="ST-BY">ST-BY</option>
+                    <option value="MNT">MNT</option>
+                </select>
+            </div>
+        </div>
+        
+        <div style="margin-top: 30px; padding: 15px; background: #F0F8FF; border-radius: 8px;">
+            <h4 style="margin-top: 0;">Legenda:</h4>
+            <p style="margin: 5px 0;"><span class="status-indicator ope" style="display: inline-block; vertical-align: middle;"></span> <strong>OPE</strong> = Operando (Verde)</p>
+            <p style="margin: 5px 0;"><span class="status-indicator st-by" style="display: inline-block; vertical-align: middle;"></span> <strong>ST-BY</strong> = Stand-by (Amarelo)</p>
+            <p style="margin: 5px 0;"><span class="status-indicator mnt" style="display: inline-block; vertical-align: middle;"></span> <strong>MNT</strong> = Manutenção (Vermelho)</p>
+            <p style="margin: 5px 0;"><span class="status-indicator" style="display: inline-block; vertical-align: middle;"></span> <strong>Vazio</strong> = Não selecionado (Cinza)</p>
+        </div>
+    </div>
+    
+    <script>
+        function updateIndicator(indicatorId, value) {
+            const indicator = document.getElementById(indicatorId);
+            if (!indicator) return;
+            
+            // Remove todas as classes de status
+            indicator.className = 'status-indicator';
+            
+            // Adiciona a classe correspondente ao valor
+            if (value) {
+                const normalized = value.toUpperCase();
+                if (normalized === 'OPE') {
+                    indicator.classList.add('ope');
+                } else if (normalized === 'ST-BY' || normalized === 'STBY') {
+                    indicator.classList.add('st-by');
+                } else if (normalized === 'MNT') {
+                    indicator.classList.add('mnt');
+                }
+            }
+            
+            console.log(`Indicador ${indicatorId} atualizado para:`, value, '| Classes:', indicator.className);
+        }
+    </script>
+</body>
+</html>
