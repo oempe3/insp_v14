@@ -10,13 +10,13 @@ const LAST_NAMES_KEY = 'inspecao_nomes_externo';
 
 // URL para carregar última inspeção (Interna)
 const SCRIPT_URL_CARREGAR_EXTERNA =
-  'https://script.google.com/macros/s/AKfycbzwbNHEWGZiraZDQWpfzb6qMHUTnSMy_bC6naTppcLn7hWHKnpXxaHBgjwhoB9jtIk3/exec';
+  'https://script.google.com/macros/s/AKfycbyDOJZxDj6fharoN_trihU8FTG3iU1EdBKPf7qozMw8oOY0TsmOkvTzvbKunHxKwkb3/exec';
 
 // URLs dos WebApps do Google Apps Script para envio dos relatórios.
 const SCRIPT_URL_INTERNA =
-  'https://script.google.com/macros/s/AKfycbzhfNsjAGEgp93CgL34uxhF27ZAsbQAbEEvtfH3ZQCV1BtHCiuosif64bRlRx8sK1cH-g/exec';
+  'https://script.google.com/macros/s/AKfycbyoQrnk6x_i1QWRSqGWL1E-S0OnuHxC66S0H388wJ9HTZgfp58QG8iBzY5ZNCkjg1K9qg/exec';
 const SCRIPT_URL_EXTERNA =
-  'https://script.google.com/macros/s/AKfycbxpU9oTqUKpRnSaPu2Ywtj3IhJnH4PEzULkPEnjQpFAiwsepAdONhTlNdmVIesWAAxPNA/exec';
+  'https://script.google.com/macros/s/AKfycbxwhnPN5Yr5End7vT8tXtwTE1AOH0gmIFC2okh7qWUcewreWYe5p1qgg7vCR2KnIySA/exec';
 
 let currentWindowId = null;
 let inspectionData = loadData();
